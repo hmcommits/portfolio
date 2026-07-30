@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import useTypewriter from '../hooks/useTypewriter'
 import styles from './Hero.module.css'
+import profileImg from '/assets/profile.jpeg'
 
 /* ── animation variants ── */
 const fadeDown  = { hidden: { opacity: 0, y: -20 }, show: { opacity: 1, y: 0 } }
@@ -69,7 +70,7 @@ function ProfilePhoto() {
     <div className={styles.photoFrame}>
       {!imgError ? (
         <img
-          src="/assets/profile.jpeg"
+          src={profileImg}
           alt="Harsh Prakash Mayekar"
           className={styles.photo}
           onError={() => setImgError(true)}

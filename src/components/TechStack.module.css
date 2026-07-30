@@ -1,0 +1,220 @@
+/* ══════════════════════════════════════════════════
+   TechStack Section — TechStack.module.css
+   ══════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  z-index: 10;
+  padding: 80px 100px;
+}
+
+/* ── Header ── */
+.sectionHeader { margin-bottom: 56px; }
+
+.sectionTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 100px;
+  padding: 5px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-secondary);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.sectionTitleGrad {
+  background: linear-gradient(135deg, #fff 0%, #c8c3ff 50%, #a5f3fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionDesc {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* ── Category group ── */
+.categoryGroup {
+  margin-bottom: 44px;
+}
+
+.categoryTitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.categoryTitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0.07), transparent);
+  border-radius: 1px;
+}
+
+/* ── Tech pill grid ── */
+.pillGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ── Individual tech pill ── */
+.techPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px 10px 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  cursor: default;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-decoration: none;
+}
+.techPill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.techPillIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.techPillIcon svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.techPillIcon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.techPillName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+  margin: 56px 0;
+}
+
+/* ── Tools subsection ── */
+.toolsHeader {
+  margin-bottom: 28px;
+}
+
+.toolsTitle {
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.toolsTitleGrad {
+  background: linear-gradient(135deg, #ffd166 0%, #ff6b9d 60%, #6c63ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.toolsDesc {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ── Tool card (bigger, with subtle glow) ── */
+.toolsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.toolCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px 14px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+  min-width: 160px;
+}
+.toolCard:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.toolIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.toolIcon svg { width: 22px; height: 22px; }
+.toolIcon img { width: 26px; height: 26px; object-fit: contain; }
+
+.toolInfo { display: flex; flex-direction: column; gap: 2px; }
+
+.toolName {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.toolDesc {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .section { padding: 64px 40px; }
+}
+@media (max-width: 640px) {
+  .section { padding: 48px 24px; }
+  .techPill { padding: 8px 14px 8px 8px; }
+  .toolCard { min-width: 140px; }
+}
