@@ -1,0 +1,102 @@
+/* ══════════════════════════════════════════════════
+   Sidebar Navigation — SidebarNav.module.css
+   ══════════════════════════════════════════════════ */
+
+.sidebar {
+  position: fixed;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  z-index: 100;
+}
+
+.sidebarLine {
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--accent-primary), transparent);
+  border-radius: 2px;
+  animation: pulseLine 3s ease-in-out infinite;
+  margin-bottom: 8px;
+}
+
+.sidebarDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(108, 99, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.sidebarDot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(108, 99, 255, 0.2);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.sidebarDot:hover {
+  background: rgba(108, 99, 255, 0.8);
+  transform: scale(1.4);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.sidebarDot.active {
+  background: var(--accent-primary);
+  transform: scale(1.6);
+  border-color: #fff;
+  box-shadow: 0 0 15px var(--accent-primary);
+}
+.sidebarDot.active::after {
+  opacity: 1;
+  transform: scale(1.5);
+  animation: ripple 2s infinite ease-out;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-10px);
+  background: rgba(10, 14, 30, 0.9);
+  color: var(--text-primary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+.sidebarDot:hover .tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+@keyframes pulseLine { 0%,100%{opacity:0.3;} 50%{opacity:1;} }
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Hide on mobile for better UX */
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+}
