@@ -161,9 +161,9 @@ export const PROJECTS = [
     description:
       'A fully autonomous AI-driven video repurposing engine. Transform hours of long-form video (podcasts, interviews, keynotes) into viral 60-second vertical Shorts using Narrative Intelligence — transcribes with faster-whisper, ranks "Golden Nuggets" by Virality Score, tracks speaker faces, renders karaoke captions, and exports 9:16 vertical video.',
     image: '/assets/attentionx.png',
-    github: null,
+    github: 'https://github.com/hmcommits/AttentionX',
     live: null,
-    demo: null,
+    demo: 'https://drive.google.com/file/d/1VxejpV63GaUFptoqXc3Qo6bhsDrd2unX/view?usp=sharing',
     techKeys: ['fastapi', 'python', 'streamlit', 'gemini', 'mediapipe', 'railway'],
   },
 ]

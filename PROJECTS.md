@@ -62,3 +62,5 @@ AI Core: faster-whisper (16kHz Audio Transcription), google-genai (LLM Analysis)
 Computer Vision: MediaPipe (Spatial Face-Tracking via median sampling)
 Frontend UI: Streamlit with custom CSS (Outfit/Inter typography, animated @keyframes)
 Deployment: Nixpacks, Railway.app ready.
+Demo: https://drive.google.com/file/d/1VxejpV63GaUFptoqXc3Qo6bhsDrd2unX/view?usp=sharing
+Github: https://github.com/hmcommits/AttentionX
