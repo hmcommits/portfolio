@@ -181,12 +181,6 @@ function ToolCard({ tool }) {
         borderColor: tool.border,
         boxShadow: `0 0 0 1px ${tool.border}`,
       }}
-      onHoverStart={(e) => {
-        e.currentTarget.style.boxShadow = `0 12px 32px ${tool.glow}, 0 0 0 1px ${tool.border}`
-      }}
-      onHoverEnd={(e) => {
-        e.currentTarget.style.boxShadow = `0 0 0 1px ${tool.border}`
-      }}
     >
       <div className={styles.toolIcon}>{tool.icon}</div>
       <div className={styles.toolInfo}>
