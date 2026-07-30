@@ -1,0 +1,37 @@
+/* ─── Background: gradient + particles ─── */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bgGradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 10%, rgba(108,99,255,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 80%, rgba(0,212,255,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,107,157,0.06) 0%, transparent 60%),
+    linear-gradient(160deg, #04091a 0%, #050a15 40%, #060b1c 100%);
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatUp var(--dur, 13s) ease-in-out infinite var(--delay, 0s);
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0%   { opacity: 0;   transform: translateY(0) scale(1); }
+  20%  { opacity: 0.8; }
+  80%  { opacity: 0.6; }
+  100% { opacity: 0;   transform: translateY(-140px) scale(0.4); }
+}
