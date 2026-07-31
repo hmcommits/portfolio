@@ -351,7 +351,7 @@
 @media (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
-    padding: 40px 32px 40px 64px;
+    padding: 40px 32px;
     gap: 36px;
   }
   .right {
@@ -365,8 +365,7 @@
   .socialBar { width: 100%; max-width: 440px; }
 }
 @media (max-width: 640px) {
-  .hero { padding: 28px 20px 28px 48px; }
+  .hero { padding: 28px 20px; }
   .name { font-size: 1.75rem; }
-  .sidebar { left: 14px; }
   .photoWrapper, .photoFrame { width: 240px; height: 295px; }
 }
