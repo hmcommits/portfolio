@@ -27,7 +27,17 @@ const DemoIcon = () => (
 /* ── Single keyboard key ── */
 function TechKey({ techKey }) {
   const tech = TECH_ICONS[techKey]
-  if (!tech) return null
+  
+  if (!tech) {
+    return (
+      <motion.div
+        className={`${styles.key} ${styles.textKey}`}
+        whileTap={{ y: 4 }}
+      >
+        {techKey}
+      </motion.div>
+    )
+  }
 
   return (
     <motion.div

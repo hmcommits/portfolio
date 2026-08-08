@@ -148,6 +148,20 @@
   user-select: none;
 }
 
+.textKey {
+  width: auto;
+  padding: 0 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+.textKey::after,
+.textKey::before {
+  display: none !important;
+}
+
 /* Tooltip on hover */
 .key::after {
   content: attr(data-label);

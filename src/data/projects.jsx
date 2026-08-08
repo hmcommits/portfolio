@@ -145,6 +145,17 @@ export const PROJECTS = [
     techKeys: ['nextjs', 'typescript', 'tailwind', 'framermotion', 'gemini', 'excalidraw', 'sandpack', 'zustand', 'zod'],
   },
   {
+    id: 'visiondrift',
+    title: 'VisionDrift',
+    description:
+      'Drive any racing game with your bare hands — no wheel, no controller, no keyboard. VisionDrift is a real-time computer vision controller that turns your webcam into a steering wheel using MediaPipe hand landmarker. The game receives standard hardware scan codes seamlessly.',
+    image: '/assets/visiondrift.png',
+    github: 'https://github.com/hmcommits/VisionDrift',
+    live: null,
+    demo: 'https://youtu.be/6amhwCqCkPU',
+    techKeys: ['python', 'OpenCV', 'mediapipe', 'PyDirectInput'],
+  },
+  {
     id: 'codespotlight',
     title: 'CodeSpotlight',
     description:
