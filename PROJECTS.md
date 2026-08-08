@@ -21,7 +21,24 @@ State Management: Zustand
 Validation: Zod
 File Export: JSZip
 
-2. CodeSpotlight:
+2. VisionDrift
+Drive any racing game with your bare hands — no wheel, no controller, no keyboard.
+VisionDrift is a real-time computer vision controller that turns your webcam into a steering wheel. Hold both hands in the air, tilt them like a wheel to steer, and open or close your fingers to accelerate or brake. The game receives standard keyboard scan codes — it cannot tell the difference between VisionDrift and a physical keyboard.
+How It Works
+Capture — OpenCV grabs each webcam frame and mirrors it horizontally so your hands move naturally (like a mirror).
+Track — Google MediaPipe's hand landmarker model detects 21 3-D landmarks on each hand at high speed. VisionDrift uses the wrist, thumb tip, index fingertip, and palm base from both hands.
+Compute — The angle of the line between your two wrists (via atan2) becomes the steering angle. The normalized distance between your right hand's thumb tip and index fingertip becomes the throttle/brake signal.
+Act — A state machine emits key-down / key-up events only when state changes. PyDirectInput delivers these as low-level hardware scan codes that bypass game input filters.
+Render — A transparent, modern steering-wheel HUD is drawn over the camera feed. The wheel rotates with your hands and scales to fit the gap between them.
+Youtube: https://youtu.be/6amhwCqCkPU
+Github: https://github.com/hmcommits/VisionDrift
+Tech Stack and Libraries used:
+Python 3.10 – 3.13
+OpenCV
+Mediapipe
+PyDirectInput
+
+3. CodeSpotlight:
 CodeSpotlight is a centralized showcase directory where developers can host their deployed projects, generate AI-powered technical deep-dives, and present their work to recruiters through a polished, read-only portfolio interface.
 Paste a GitHub URL, and CodeSpotlight's integration with Gemini AI and the GitHub API instantly generates architecture diagrams, commit heatmaps, language visualizations, and a fully formatted Markdown README.
 ✨ Features
@@ -47,7 +64,7 @@ Database: MongoDB Atlas (Mongoose)
 AI Integration: @google/generative-ai (Gemini 2.5 Flash)
 Hosting: Render.com
 
-3. AttentionX:
+4. AttentionX:
 The fully autonomous, AI-driven video repurposing engine. Transform hours of long-form video (podcasts, interviews, keynotes) into highly-viral, 60-second vertical Shorts using state-of-the-art Narrative Intelligence.
 AttentionX operates on a completely different paradigm. Using Narrative Intelligence, it transcribes your entire video with faster-whisper and pipes the data into a high-context reasoning model (Gemini 2.5 Flash).
 It ranks the top "Golden Nuggets" by Virality Score, tracks the speaker's face, renders karaoke captions, and exports a 9:16 vertical video right to your browser.
