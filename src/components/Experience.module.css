@@ -250,63 +250,6 @@
   outline-offset: 3px;
 }
 
-/* ─── Lightbox ─── */
-.lightboxBackdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(2, 5, 16, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-
-.lightboxInner {
-  position: relative;
-  max-width: 880px;
-  width: 100%;
-  background: rgba(10, 14, 30, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(108, 99, 255, 0.15);
-}
-
-.lightboxClose {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  z-index: 10;
-}
-.lightboxClose:hover {
-  background: rgba(255, 75, 75, 0.15);
-  border-color: rgba(255, 75, 75, 0.4);
-  color: #ff6b6b;
-}
-
-.lightboxImg {
-  width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  display: block;
-  padding: 20px;
-  background: #f8f9fa; /* slightly off-white to make cert pop if transparent */
-}
-
 /* ─── Responsive ─── */
 @media (max-width: 1024px) {
   .section { padding: 64px 40px; }

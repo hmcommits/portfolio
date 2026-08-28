@@ -1,50 +1,10 @@
-import { useState, useEffect, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
+import Lightbox from './Lightbox'
 import styles from './Achievements.module.css'
 
-/* ── Lightbox modal ── */
-function Lightbox({ src, alt, onClose }) {
-  // Close on Escape key
-  useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') onClose() }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [onClose])
-
-  return (
-    <AnimatePresence>
-      <motion.div
-        className={styles.lightboxBackdrop}
-        onClick={onClose}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.22 }}
-      >
-        <motion.div
-          className={styles.lightboxInner}
-          onClick={e => e.stopPropagation()}
-          initial={{ opacity: 0, scale: 0.88, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.88, y: 20 }}
-          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <button className={styles.lightboxClose} onClick={onClose} aria-label="Close">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <line x1="18" y1="6" x2="6" y2="18"/>
-              <line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-          </button>
-          <img src={src} alt={alt} className={styles.lightboxImg} />
-          <p className={styles.lightboxCaption}>{alt}</p>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
-  )
-}
-
 /* ── Safe image — hides on load error ── */
-function SafeImg({ src, alt, className, style }) {
+function SafeImg({ src, alt, className, width, height, style }) {
   const [err, setErr] = useState(false)
   if (err) return (
     <div className={className} style={{ ...style, display:'flex', alignItems:'center', justifyContent:'center', background:'rgba(255,255,255,0.03)' }}>
@@ -53,7 +13,21 @@ function SafeImg({ src, alt, className, style }) {
       </svg>
     </div>
   )
-  return <img src={src} alt={alt} className={className} style={style} onError={() => setErr(true)} loading="lazy" />
+  return (
+    <img
+      src={src} alt={alt} className={className} style={style}
+      width={width} height={height}
+      onError={() => setErr(true)} loading="lazy" decoding="async"
+    />
+  )
+}
+
+/* Keyboard activation for card-as-button pattern (Enter + Space) */
+const pressKeys = (fn) => (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault()
+    fn()
+  }
 }
 
 /* ════════════════════════════════════════════
@@ -64,20 +38,22 @@ const HACKATHONS = [
     id: 'unsaid',
     medal: '🥈',
     rank: '1st Runner Up',
-    rankClass: styles.rankGold,
+    rankClass: 'rankGold',
     title: 'AttentionX Hackathon',
     org: 'by UnsaidTalks',
-    image: '/assets/unsaidtalkshackathon.png',
+    image: '/assets/unsaidtalkshackathon.webp',
+    imageWidth: 1400, imageHeight: 990,
     desc: 'Built AttentionX — an autonomous AI video repurposing engine that converts long-form podcasts into viral 60-second Shorts using Narrative Intelligence.',
   },
   {
     id: 'devlynix',
     medal: '🥉',
     rank: '2nd Runner Up',
-    rankClass: styles.rankSilver,
+    rankClass: 'rankSilver',
     title: 'Devlynix Buildathon',
     org: 'by Devlynix',
-    image: '/assets/devlynixhackathon.png',
+    image: '/assets/devlynixhackathon.webp',
+    imageWidth: 1400, imageHeight: 992,
     desc: 'Competed against top developers in an intensive buildathon and secured 2nd Runner Up, delivering a high-quality product under time constraints.',
   },
 ]
@@ -89,7 +65,8 @@ const ACHIEVEMENTS = [
     title: 'Top 50 — WeMakeDevs × Coral Hackathon',
     sub: 'WeMakeDevs × Coral Protocol',
     badge: 'Top 50 Nationally',
-    image: '/assets/coralhackathon.png',
+    image: '/assets/coralhackathon.webp',
+    imageWidth: 1400, imageHeight: 786,
   },
 ]
 
@@ -99,7 +76,8 @@ const CERTS = [
     badge: 'Certification',
     title: 'Software Engineering Job Simulation',
     issuer: 'JPMorgan Chase & Co.',
-    image: '/assets/jpmorganjobsim.png',
+    image: '/assets/jpmorganjobsim.webp',
+    imageWidth: 1400, imageHeight: 992,
     issuerColor: '#1a5276',
   },
   {
@@ -107,7 +85,8 @@ const CERTS = [
     badge: 'Training Program',
     title: 'Artificial Intelligence Training',
     issuer: 'Acmegrade',
-    image: '/assets/aiacmegrade.png',
+    image: '/assets/aiacmegrade.webp',
+    imageWidth: 1400, imageHeight: 1068,
     issuerColor: '#1b4f72',
   },
 ]
@@ -137,29 +116,30 @@ function SubLabel({ children, certStyle }) {
    Hackathon Card
    ══════════════════════════════════════════ */
 function HackCard({ hack, onOpen }) {
+  const open = () => onOpen(hack.image, hack.title)
   return (
     <motion.article
       className={`${styles.hackCard} ${styles.clickable}`}
       variants={fadeUp}
       whileHover={{ y: -5 }}
-      onClick={() => onOpen(hack.image, hack.title)}
+      onClick={open}
       role="button"
       tabIndex={0}
-      onKeyDown={e => e.key === 'Enter' && onOpen(hack.image, hack.title)}
+      onKeyDown={pressKeys(open)}
       title="Click to view certificate"
     >
-      {/* Image — full width, no overlay */}
       <SafeImg
         src={hack.image}
         alt={hack.title}
+        width={hack.imageWidth}
+        height={hack.imageHeight}
         className={styles.hackImg}
       />
 
-      {/* Text block — separate from image, solid bg */}
       <div className={styles.hackBody}>
         <div className={styles.hackRankRow}>
           <span className={styles.hackMedal}>{hack.medal}</span>
-          <span className={`${styles.hackRank} ${hack.rankClass}`}>{hack.rank}</span>
+          <span className={`${styles.hackRank} ${styles[hack.rankClass]}`}>{hack.rank}</span>
         </div>
         <h3 className={styles.hackTitle}>{hack.title}</h3>
         <p className={styles.hackOrg}>{hack.org}</p>
@@ -173,18 +153,19 @@ function HackCard({ hack, onOpen }) {
    Achievement Card
    ══════════════════════════════════════════ */
 function AchieveCard({ item, onOpen }) {
+  const open = () => onOpen(item.image, item.title)
   return (
     <motion.article
       className={`${styles.achieveCard} ${styles.clickable}`}
       variants={fadeUp}
       whileHover={{ y: -4 }}
-      onClick={() => onOpen(item.image, item.title)}
+      onClick={open}
       role="button"
       tabIndex={0}
-      onKeyDown={e => e.key === 'Enter' && onOpen(item.image, item.title)}
+      onKeyDown={pressKeys(open)}
       title="Click to view certificate"
     >
-      <SafeImg src={item.image} alt={item.title} className={styles.achieveImg} />
+      <SafeImg src={item.image} alt={item.title} width={item.imageWidth} height={item.imageHeight} className={styles.achieveImg} />
       <div className={styles.achieveBody}>
         <span className={styles.achieveEmoji}>{item.emoji}</span>
         <p className={styles.achieveTitle}>{item.title}</p>
@@ -202,27 +183,28 @@ function AchieveCard({ item, onOpen }) {
    Certification Card
    ══════════════════════════════════════════ */
 function CertCard({ cert, onOpen }) {
+  const open = () => onOpen(cert.image, cert.title)
   return (
     <motion.article
       className={`${styles.certCard} ${styles.clickable}`}
       variants={fadeUp}
       whileHover={{ y: -4 }}
-      onClick={() => onOpen(cert.image, cert.title)}
+      onClick={open}
       role="button"
       tabIndex={0}
-      onKeyDown={e => e.key === 'Enter' && onOpen(cert.image, cert.title)}
+      onKeyDown={pressKeys(open)}
       title="Click to view certificate"
     >
-      {/* Certificate image — large, object-fit: contain so full cert is visible */}
       <div className={styles.certImgWrapper}>
         <SafeImg
           src={cert.image}
           alt={cert.title}
+          width={cert.imageWidth}
+          height={cert.imageHeight}
           className={styles.certImg}
         />
       </div>
 
-      {/* Details */}
       <div className={styles.certBody}>
         <span className={styles.certBadge}>
           <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
@@ -255,7 +237,7 @@ export default function Achievements() {
 
   return (
     <section className={styles.section} id="achievements">
-      {lightbox && <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={closeLightbox} />}
+      <Lightbox item={lightbox} onClose={closeLightbox} />
 
       {/* Header */}
       <motion.div
@@ -265,7 +247,10 @@ export default function Achievements() {
         viewport={{ once: true }}
         transition={{ duration: 0.55 }}
       >
-        <div className={styles.sectionTag}>🏆 Recognition</div>
+        <div className={styles.sectionTag}>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+          Recognition
+        </div>
         <h2 className={styles.sectionTitle}>
           Achievements &{' '}
           <span className={styles.titleGrad}>Certifications</span>

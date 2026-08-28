@@ -31,6 +31,7 @@ export default function Background() {
           />
         ))}
       </div>
+      <div className={styles.grain} />
     </div>
   )
 }

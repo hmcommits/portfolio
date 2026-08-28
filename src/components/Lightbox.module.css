@@ -1,0 +1,71 @@
+/* ─── Shared Lightbox ─── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(2, 5, 16, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.inner {
+  position: relative;
+  max-width: 880px;
+  max-height: 90vh;
+  width: 100%;
+  background: rgba(10, 14, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(108, 99, 255, 0.15);
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(8, 12, 26, 0.75);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+.close:hover {
+  background: rgba(255, 75, 75, 0.15);
+  border-color: rgba(255, 75, 75, 0.4);
+  color: #ff6b6b;
+}
+.close svg { width: 16px; height: 16px; }
+
+.img {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+  padding: 20px 20px 0;
+}
+
+.caption {
+  text-align: center;
+  padding: 14px 20px 18px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 640px) {
+  .backdrop { padding: 12px; }
+  .img { padding: 12px 12px 0; }
+}

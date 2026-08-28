@@ -1,5 +1,5 @@
 /* ─── Global Reset & Design Tokens ─── */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Fonts are loaded once from index.html <link> — no @import here (render-blocking + duplicate). */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -15,7 +15,7 @@
   --accent-gold:      #ffd166;
   --text-primary:     #f0f4ff;
   --text-secondary:   #8892b0;
-  --text-muted:       #4a5568;
+  --text-muted:       #6b7a99;   /* lightened for WCAG AA contrast on dark bg */
   --glass-bg:         rgba(255, 255, 255, 0.04);
   --glass-border:     rgba(255, 255, 255, 0.08);
   --glass-shadow:     rgba(0, 0, 0, 0.4);
@@ -28,15 +28,62 @@
   --radius-xl:        40px;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
 
 body {
   font-family: var(--font-main);
   background: var(--bg-base);
   color: var(--text-primary);
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Anchored sections stop below any fixed chrome and breathe a little */
+section[id], main[id] {
+  scroll-margin-top: 24px;
+}
+
+::selection {
+  background: rgba(108, 99, 255, 0.45);
+  color: #fff;
+}
+
+/* ─── Accessibility ─── */
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: 16px;
+  z-index: 2000;
+  background: var(--accent-primary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus-visible { top: 16px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-secondary);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* ─── Scrollbar ─── */
@@ -54,4 +101,23 @@ body {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   box-shadow: 0 8px 32px var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* Cheaper blur on mobile GPUs */
+@media (max-width: 640px) {
+  .glass-card {
+    backdrop-filter: blur(10px) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+  }
+}
+
+/* ─── Reduced motion: kill CSS animation & smooth scroll ─── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

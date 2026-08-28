@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const WORDS = ['Developer', 'Problem Solver', 'Tech Enthusiast']
+export const WORDS = ['Full-Stack Developer', 'AI Product Builder', 'Problem Solver']
 const TYPE_SPEED = 80
 const DELETE_SPEED = 45
 const PAUSE_AFTER_TYPE = 1600

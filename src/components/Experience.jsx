@@ -1,51 +1,21 @@
-import { useState, useEffect, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
+import Lightbox from './Lightbox'
 import styles from './Experience.module.css'
-
-/* ── Lightbox modal ── */
-function Lightbox({ src, alt, onClose }) {
-  useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') onClose() }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [onClose])
-
-  return (
-    <AnimatePresence>
-      <motion.div
-        className={styles.lightboxBackdrop}
-        onClick={onClose}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.22 }}
-      >
-        <motion.div
-          className={styles.lightboxInner}
-          onClick={e => e.stopPropagation()}
-          initial={{ opacity: 0, scale: 0.88, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.88, y: 20 }}
-          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <button className={styles.lightboxClose} onClick={onClose} aria-label="Close">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <line x1="18" y1="6" x2="6" y2="18"/>
-              <line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-          </button>
-          <img src={src} alt={alt} className={styles.lightboxImg} loading="lazy" />
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
-  )
-}
 
 /* ── Safe Image component ── */
 function SafeImg({ src, alt, className }) {
   const [err, setErr] = useState(false)
   if (err) return null
-  return <img src={src} alt={alt} className={className} onError={() => setErr(true)} loading="lazy" />
+  return <img src={src} alt={alt} className={className} onError={() => setErr(true)} loading="lazy" decoding="async" />
+}
+
+/* Keyboard activation for card-as-button pattern (Enter + Space) */
+const pressKeys = (fn) => (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault()
+    fn()
+  }
 }
 
 /* ════════════════════════════════════════════════════
@@ -63,12 +33,12 @@ const EXPERIENCE_DATA = [
       {
         id: 'cert',
         title: 'Certificate of Internship',
-        image: '/assets/mccinternshipcertificate.jpg',
+        image: '/assets/mccinternshipcertificate.webp',
       },
       {
         id: 'lor',
         title: 'Letter of Recommendation',
-        image: '/assets/mccinternshiplor.jpg',
+        image: '/assets/mccinternshiplor.webp',
       }
     ]
   }
@@ -90,7 +60,7 @@ export default function Experience() {
 
   return (
     <section className={styles.section} id="experience">
-      {lightbox && <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={closeLightbox} />}
+      <Lightbox item={lightbox} onClose={closeLightbox} />
 
       {/* ── Header ── */}
       <motion.div
@@ -101,7 +71,7 @@ export default function Experience() {
         transition={{ duration: 0.55 }}
       >
         <div className={styles.sectionTag}>
-          <span>💼</span>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
           Career
         </div>
         <h2 className={styles.sectionTitle}>
@@ -112,7 +82,7 @@ export default function Experience() {
 
       {/* ── Experience Timeline / Cards ── */}
       <div className={styles.timeline}>
-        {EXPERIENCE_DATA.map((exp, index) => (
+        {EXPERIENCE_DATA.map((exp) => (
           <motion.article
             key={exp.id}
             className={styles.expCard}
@@ -167,7 +137,7 @@ export default function Experience() {
                       onClick={() => openLightbox(doc.image, doc.title)}
                       role="button"
                       tabIndex={0}
-                      onKeyDown={e => e.key === 'Enter' && openLightbox(doc.image, doc.title)}
+                      onKeyDown={pressKeys(() => openLightbox(doc.image, doc.title))}
                       title={`View ${doc.title}`}
                     >
                       <div className={styles.docImgWrapper}>
