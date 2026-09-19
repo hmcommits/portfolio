@@ -126,27 +126,23 @@ export default function Hero() {
             </svg>
             Download Resume
           </motion.a>
+          <motion.a
+            href="https://github.com/hmcommits"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.btnGithub}
+            whileHover={{ scale: 1.04, y: -3 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <BrandIcon name="github" />
+            GitHub
+          </motion.a>
         </motion.div>
       </motion.div>
 
       {/* ── RIGHT ── */}
       <aside className={styles.right}>
-        {/* Achievement top */}
-        <motion.div
-          className={`${styles.achievementCard} ${styles.achievementTop} glass-card`}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          whileHover={{ y: -5 }}
-        >
-          <span className={styles.achieveIcon}>🏆</span>
-          <div className={styles.achieveInfo}>
-            <span className={styles.achieveNumber}>2×</span>
-            <span className={styles.achieveLabel}>Hackathon Winner</span>
-          </div>
-        </motion.div>
-
-        {/* Photo */}
+        {/* Photo with floating stat cards anchored to its corners */}
         <motion.div
           className={styles.photoWrapper}
           initial={{ opacity: 0, scale: 0.92 }}
@@ -155,21 +151,40 @@ export default function Hero() {
         >
           <div className={styles.photoRing} aria-hidden="true" />
           <ProfilePhoto />
-        </motion.div>
 
-        {/* Achievement bottom */}
-        <motion.div
-          className={`${styles.achievementCard} ${styles.achievementBottom} glass-card`}
-          initial={{ opacity: 0, y: -24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          whileHover={{ y: -5 }}
-        >
-          <span className={styles.achieveIcon}>⭐</span>
-          <div className={styles.achieveInfo}>
-            <span className={styles.achieveNumber}>5+</span>
-            <span className={styles.achieveLabel}>Achievements</span>
-          </div>
+          {/* Achievement top-left */}
+          <motion.div
+            className={`${styles.achievementPos} ${styles.achievementTop}`}
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            whileHover={{ scale: 1.06 }}
+          >
+            <div className={`${styles.achievementCard} glass-card`}>
+              <span className={styles.achieveIcon}>🏆</span>
+              <div className={styles.achieveInfo}>
+                <span className={styles.achieveNumber}>3×</span>
+                <span className={styles.achieveLabel}>Hackathon Winner</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Achievement bottom-right */}
+          <motion.div
+            className={`${styles.achievementPos} ${styles.achievementBottom}`}
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            whileHover={{ scale: 1.06 }}
+          >
+            <div className={`${styles.achievementCard} glass-card`}>
+              <span className={styles.achieveIcon}>⭐</span>
+              <div className={styles.achieveInfo}>
+                <span className={styles.achieveNumber}>7+</span>
+                <span className={styles.achieveLabel}>Achievements</span>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Social bar */}
