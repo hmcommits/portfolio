@@ -56,6 +56,17 @@ const HACKATHONS = [
     imageWidth: 1400, imageHeight: 992,
     desc: 'Competed against top developers in an intensive buildathon and secured 2nd Runner Up, delivering a high-quality product under time constraints.',
   },
+  {
+    id: 'rocketride',
+    medal: '🥈',
+    rank: '1st Runner Up',
+    rankClass: 'rankGold',
+    title: 'RocketRide × HackwithIndia Hackathon',
+    org: 'BVUDET NM Chapter, Navi Mumbai',
+    image: '/assets/rocketride.webp',
+    imageWidth: 1599, imageHeight: 899,
+    desc: 'Secured 1st Runner-Up at a hackathon organized by RocketRide, Devnovate, and HackwithIndia, hosted at Bharati Vidyapeeth University, Navi Mumbai. Pitched directly to Rod Christensen and Ryan Christensen — the founders behind RocketRide — making this milestone genuinely unforgettable.',
+  },
 ]
 
 const ACHIEVEMENTS = [
