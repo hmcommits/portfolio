@@ -207,8 +207,8 @@
   cursor: default;
 }
 .achieveCard:hover {
-  border-color: rgba(108,99,255,0.3);
-  box-shadow: 0 12px 40px rgba(108,99,255,0.12);
+  border-color: rgba(211, 47, 47,0.3);
+  box-shadow: 0 12px 40px rgba(211, 47, 47,0.12);
   transform: translateY(-4px);
 }
 .achieveImg {
@@ -245,8 +245,8 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: rgba(108,99,255,0.1);
-  border: 1px solid rgba(108,99,255,0.25);
+  background: rgba(211, 47, 47,0.1);
+  border: 1px solid rgba(211, 47, 47,0.25);
   border-radius: 100px;
   padding: 3px 11px;
   font-size: 0.65rem;
@@ -260,8 +260,8 @@
 /* ════════════════════════════════════
    CERTIFICATIONS
    ════════════════════════════════════ */
-.subLabelCert::before { background: linear-gradient(to left, rgba(0,212,255,0.2), transparent); }
-.subLabelCert::after  { background: linear-gradient(to right, rgba(0,212,255,0.2), transparent); }
+.subLabelCert::before { background: linear-gradient(to left, rgba(255, 102, 89,0.2), transparent); }
+.subLabelCert::after  { background: linear-gradient(to right, rgba(255, 102, 89,0.2), transparent); }
 
 .certsGrid {
   display: grid;
@@ -279,8 +279,8 @@
   cursor: default;
 }
 .certCard:hover {
-  border-color: rgba(0,212,255,0.3);
-  box-shadow: 0 16px 48px rgba(0,212,255,0.09);
+  border-color: rgba(255, 102, 89,0.3);
+  box-shadow: 0 16px 48px rgba(255, 102, 89,0.09);
   transform: translateY(-4px);
 }
 
@@ -312,8 +312,8 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: rgba(0,212,255,0.08);
-  border: 1px solid rgba(0,212,255,0.22);
+  background: rgba(255, 102, 89,0.08);
+  border: 1px solid rgba(255, 102, 89,0.22);
   border-radius: 100px;
   padding: 3px 11px;
   font-size: 0.63rem;

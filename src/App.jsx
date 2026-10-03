@@ -1,5 +1,6 @@
 import { MotionConfig } from 'framer-motion'
 import Background from './components/Background'
+import ScrollProgress from './components/ScrollProgress'
 import SidebarNav from './components/SidebarNav'
 import MobileNav from './components/MobileNav'
 import Hero from './components/Hero'
@@ -15,6 +16,7 @@ export default function App() {
     <MotionConfig reducedMotion="user">
       <a href="#main" className="skip-link">Skip to content</a>
       <Background />
+      <ScrollProgress />
       <SidebarNav />
       <MobileNav />
       <main id="main">

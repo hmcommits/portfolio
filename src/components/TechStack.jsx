@@ -38,20 +38,18 @@ const TOOLS = [
     name: 'Antigravity',
     desc: 'AI Coding Agent',
     bg: 'linear-gradient(135deg, #1a1a2e, #16213e)',
-    border: 'rgba(108,99,255,0.5)',
-    glow: 'rgba(108,99,255,0.25)',
+    border: 'rgba(211,47,47,0.5)',
+    glow: 'rgba(211,47,47,0.25)',
     icon: (
-      /* Custom Antigravity "AG" mark — Google DeepMind brand violet */
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      /* Official Google Antigravity mark, brand gradient fill */
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="ag-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#6c63ff"/>
-            <stop offset="100%" stopColor="#00d4ff"/>
+            <stop offset="0%" stopColor="#8ab4f8"/>
+            <stop offset="100%" stopColor="#d32f2f"/>
           </linearGradient>
         </defs>
-        <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" fill="url(#ag-grad)" opacity="0.15"/>
-        <path d="M12 2L4 6v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V6l-8-4z" stroke="url(#ag-grad)" strokeWidth="1.5" fill="none"/>
-        <text x="12" y="15.5" textAnchor="middle" fill="url(#ag-grad)" fontSize="7" fontWeight="800" fontFamily="sans-serif">AG</text>
+        <path fill="url(#ag-grad)" d="M21.751 22.607c1.34 1.005 3.35.335 1.508-1.508C17.73 15.74 18.904 1 12.037 1 5.17 1 6.342 15.74.815 21.1c-2.01 2.009.167 2.511 1.507 1.506 5.192-3.517 4.857-9.714 9.715-9.714 4.857 0 4.522 6.197 9.714 9.715z"/>
       </svg>
     ),
   },

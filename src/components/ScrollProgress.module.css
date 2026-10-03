@@ -1,0 +1,12 @@
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 300;
+  transform-origin: 0%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-pink));
+  box-shadow: 0 0 12px rgba(211, 47, 47, 0.5);
+  pointer-events: none;
+}

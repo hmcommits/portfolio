@@ -10,10 +10,42 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 15% 10%, rgba(108,99,255,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 85% 80%, rgba(0,212,255,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 15% 10%, rgba(211, 47, 47,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 80%, rgba(255, 102, 89,0.14) 0%, transparent 55%),
     radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,107,157,0.06) 0%, transparent 60%),
-    linear-gradient(160deg, #04091a 0%, #050a15 40%, #060b1c 100%);
+    linear-gradient(160deg, #030816 0%, #040a17 40%, #06102a 100%);
+}
+
+/* ─── Aurora blobs — pre-blurred radial gradients drifting slowly.
+   transform-only animation, cheap on the GPU. ─── */
+.aurora {
+  position: absolute;
+  width: 55vw;
+  height: 55vw;
+  min-width: 480px;
+  min-height: 480px;
+  border-radius: 50%;
+  will-change: transform;
+}
+.auroraA {
+  top: -18%;
+  left: -12%;
+  background: radial-gradient(circle at 40% 40%, rgba(211, 47, 47,0.14) 0%, rgba(255, 102, 89,0.05) 45%, transparent 68%);
+  animation: auroraDriftA 26s ease-in-out infinite alternate;
+}
+.auroraB {
+  bottom: -22%;
+  right: -14%;
+  background: radial-gradient(circle at 60% 60%, rgba(255, 102, 89,0.1) 0%, rgba(255,107,157,0.05) 45%, transparent 68%);
+  animation: auroraDriftB 32s ease-in-out infinite alternate;
+}
+@keyframes auroraDriftA {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(9vw, 7vh) scale(1.18); }
+}
+@keyframes auroraDriftB {
+  from { transform: translate(0, 0) scale(1.12); }
+  to   { transform: translate(-8vw, -6vh) scale(0.95); }
 }
 
 .particles {

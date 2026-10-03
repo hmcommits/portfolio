@@ -18,8 +18,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(108, 99, 255, 0.1);
-  border: 1px solid rgba(108, 99, 255, 0.28);
+  background: rgba(211, 47, 47, 0.1);
+  border: 1px solid rgba(211, 47, 47, 0.28);
   border-radius: 100px;
   padding: 5px 16px;
   font-size: 0.75rem;
@@ -38,7 +38,7 @@
 }
 
 .sectionTitleGrad {
-  background: linear-gradient(135deg, #ffffff 0%, #c8c3ff 50%, #a5f3fc 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #ffcccc 50%, #ffd8c2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -67,14 +67,14 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.5), rgba(0, 212, 255, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(211, 47, 47, 0.5), rgba(255, 102, 89, 0.5), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 .projectCard:hover::before { opacity: 1; }
 .projectCard:hover {
-  border-color: rgba(108, 99, 255, 0.25);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45), 0 0 44px rgba(108, 99, 255, 0.1);
+  border-color: rgba(211, 47, 47, 0.25);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45), 0 0 44px rgba(211, 47, 47, 0.1);
   transform: translateY(-4px);
 }
 
@@ -105,7 +105,7 @@
   font-size: clamp(1.5rem, 2vw, 2rem);
   font-weight: 800;
   letter-spacing: -0.3px;
-  background: linear-gradient(135deg, #fff 0%, #c8c3ff 100%);
+  background: linear-gradient(135deg, #fff 0%, #ffcccc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -207,7 +207,7 @@
   white-space: nowrap;
   padding: 4px 9px;
   border-radius: 6px;
-  border: 1px solid rgba(108, 99, 255, 0.35);
+  border: 1px solid rgba(211, 47, 47, 0.35);
   letter-spacing: 0.4px;
   opacity: 0;
   pointer-events: none;
@@ -222,7 +222,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(4px);
   border: 5px solid transparent;
-  border-top-color: rgba(108, 99, 255, 0.35);
+  border-top-color: rgba(211, 47, 47, 0.35);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease, transform 0.15s ease;
@@ -297,11 +297,11 @@
 .btnLive {
   background: linear-gradient(135deg, var(--accent-primary), #a78bfa);
   color: #fff;
-  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 4px 16px rgba(211, 47, 47, 0.4);
 }
 .btnLive:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 8px 28px rgba(108, 99, 255, 0.55);
+  box-shadow: 0 8px 28px rgba(211, 47, 47, 0.55);
 }
 
 .btnDemo {
@@ -332,8 +332,8 @@
   width: 100%;
   border-radius: 18px;
   overflow: hidden;
-  background: rgba(108, 99, 255, 0.08);
-  border: 1px solid rgba(108, 99, 255, 0.18);
+  background: rgba(211, 47, 47, 0.08);
+  border: 1px solid rgba(211, 47, 47, 0.18);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
   position: relative;
   aspect-ratio: 4 / 3;
@@ -343,7 +343,7 @@
   font: inherit;
   transition: border-color 0.3s ease;
 }
-.imageWrapper:hover { border-color: rgba(0, 212, 255, 0.35); }
+.imageWrapper:hover { border-color: rgba(255, 102, 89, 0.35); }
 
 .projectImage {
   width: 100%;

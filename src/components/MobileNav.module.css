@@ -50,8 +50,8 @@
 
 .item.active {
   color: #fff;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.85), rgba(0, 212, 255, 0.55));
-  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.45);
+  background: linear-gradient(135deg, rgba(211, 47, 47, 0.85), rgba(255, 102, 89, 0.55));
+  box-shadow: 0 4px 16px rgba(211, 47, 47, 0.45);
 }
 .item.active .label {
   opacity: 1;

@@ -35,8 +35,8 @@
   font-size: 1rem;
   letter-spacing: -0.5px;
   color: #fff;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.9), rgba(0, 212, 255, 0.55));
-  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.35);
+  background: linear-gradient(135deg, rgba(211, 47, 47, 0.9), rgba(255, 102, 89, 0.55));
+  box-shadow: 0 6px 20px rgba(211, 47, 47, 0.35);
 }
 
 .name {
@@ -86,8 +86,8 @@
 .socialBtn svg { width: 18px; height: 18px; }
 .socialBtn:hover {
   color: #fff;
-  border-color: rgba(108, 99, 255, 0.5);
-  background: rgba(108, 99, 255, 0.15);
+  border-color: rgba(211, 47, 47, 0.5);
+  background: rgba(211, 47, 47, 0.15);
   transform: translateY(-3px);
 }
 
@@ -142,8 +142,8 @@
 .backToTop svg { width: 14px; height: 14px; }
 .backToTop:hover {
   color: #fff;
-  border-color: rgba(0, 212, 255, 0.45);
-  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(255, 102, 89, 0.45);
+  background: rgba(255, 102, 89, 0.08);
   transform: translateY(-2px);
 }
 

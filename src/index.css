@@ -8,9 +8,9 @@
 }
 
 :root {
-  --bg-base:          #050a15;
-  --accent-primary:   #6c63ff;
-  --accent-secondary: #00d4ff;
+  --bg-base:          #120303;
+  --accent-primary:   #d32f2f;
+  --accent-secondary: #ff6659;
   --accent-pink:      #ff6b9d;
   --accent-gold:      #ffd166;
   --text-primary:     #f0f4ff;
@@ -19,7 +19,7 @@
   --glass-bg:         rgba(255, 255, 255, 0.04);
   --glass-border:     rgba(255, 255, 255, 0.08);
   --glass-shadow:     rgba(0, 0, 0, 0.4);
-  --gradient-type:    linear-gradient(135deg, #6c63ff 0%, #00d4ff 40%, #ff6b9d 80%, #ffd166 100%);
+  --gradient-type:    linear-gradient(135deg, #d32f2f 0%, #ff6659 40%, #ff6b9d 80%, #ffd166 100%);
   --font-main:        'Outfit', sans-serif;
   --font-mono:        'JetBrains Mono', monospace;
   --radius-sm:        10px;
@@ -49,7 +49,7 @@ section[id], main[id] {
 }
 
 ::selection {
-  background: rgba(108, 99, 255, 0.45);
+  background: rgba(211, 47, 47, 0.45);
   color: #fff;
 }
 
@@ -87,11 +87,14 @@ section[id], main[id] {
 }
 
 /* ─── Scrollbar ─── */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 7px; }
 ::-webkit-scrollbar-track { background: var(--bg-base); }
 ::-webkit-scrollbar-thumb {
-  background: rgba(108, 99, 255, 0.4);
-  border-radius: 3px;
+  background: linear-gradient(180deg, rgba(211, 47, 47, 0.55), rgba(255, 102, 89, 0.4));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(211, 47, 47, 0.8), rgba(255, 102, 89, 0.6));
 }
 
 /* ─── Shared Glass Card ─── */
