@@ -355,28 +355,6 @@
 }
 .imageWrapper:hover .projectImage { transform: scale(1.03); }
 
-.imageZoomHint {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  background: rgba(8, 12, 26, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  pointer-events: none;
-}
-.imageZoomHint svg { width: 16px; height: 16px; }
-.imageWrapper:hover .imageZoomHint,
-.imageWrapper:focus-visible .imageZoomHint { opacity: 1; }
-
 .imagePlaceholder {
   display: flex;
   align-items: center;

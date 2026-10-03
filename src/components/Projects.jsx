@@ -150,25 +150,9 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* ── Image panel — click opens lightbox instead of navigating ── */}
+            {/* ── Image panel ── */}
             <div className={styles.right}>
-              <div
-                className={styles.imageWrapper}
-                onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  openLightbox(project.image, `${project.title} — screenshot`)
-                }}
-                role="button"
-                tabIndex={0}
-                aria-label={`View ${project.title} screenshot`}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault()
-                    openLightbox(project.image, `${project.title} — screenshot`)
-                  }
-                }}
-              >
+              <div className={styles.imageWrapper}>
                 <img
                   src={project.image}
                   alt={`${project.title} screenshot`}
@@ -178,11 +162,6 @@ export default function Projects() {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className={styles.imageZoomHint} aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
-                  </svg>
-                </span>
               </div>
             </div>
           </motion.a>
