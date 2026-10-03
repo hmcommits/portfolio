@@ -169,6 +169,23 @@ export default function Hero() {
             </div>
           </motion.div>
 
+          {/* Achievement mid-left */}
+          <motion.div
+            className={`${styles.achievementPos} ${styles.achievementMid}`}
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            whileHover={{ scale: 1.06 }}
+          >
+            <div className={`${styles.achievementCard} glass-card`}>
+              <span className={styles.achieveIcon}>💡</span>
+              <div className={styles.achieveInfo}>
+                <span className={styles.achieveNumber}>1×</span>
+                <span className={styles.achieveLabel}>Ideathon Winner</span>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Achievement bottom-right */}
           <motion.div
             className={`${styles.achievementPos} ${styles.achievementBottom}`}
@@ -180,7 +197,7 @@ export default function Hero() {
             <div className={`${styles.achievementCard} glass-card`}>
               <span className={styles.achieveIcon}>⭐</span>
               <div className={styles.achieveInfo}>
-                <span className={styles.achieveNumber}>7+</span>
+                <span className={styles.achieveNumber}>8+</span>
                 <span className={styles.achieveLabel}>Achievements</span>
               </div>
             </div>

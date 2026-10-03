@@ -217,6 +217,7 @@
   z-index: 6;
 }
 .achievementTop    { top: 16px;    left: -64px; }
+.achievementMid    { bottom: 120px; left: -64px; }
 .achievementBottom { bottom: 40px; right: -64px; }
 
 .achievementCard {
@@ -234,6 +235,10 @@
 .achievementBottom .achievementCard {
   animation-duration: 7s;
   animation-delay: 1.4s;
+}
+.achievementMid .achievementCard {
+  animation-duration: 8s;
+  animation-delay: 0.7s;
 }
 .achievementPos:hover .achievementCard {
   border-color: rgba(255, 209, 102, 0.4);
@@ -431,6 +436,7 @@
 
   /* Stat cards pinned to the photo corners, pulled inward */
   .achievementTop    { top: 10px;    left: -68px; }
+  .achievementMid    { bottom: 100px; left: -68px; }
   .achievementBottom { bottom: 28px; right: -68px; }
   .achievementCard { padding: 10px 15px; gap: 10px; }
   .achieveIcon { font-size: 1.3rem; }
@@ -449,6 +455,7 @@
 
   /* Bring cards slightly closer on very narrow screens */
   .achievementTop    { top: 8px;    left: -56px; }
+  .achievementMid    { bottom: 80px; left: -56px; }
   .achievementBottom { bottom: 20px; right: -56px; }
 
   .ctaRow { width: 100%; flex-direction: column; }
