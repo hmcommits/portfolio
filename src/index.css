@@ -8,24 +8,24 @@
 }
 
 :root {
-  --bg-base:          #120303;
-  --accent-primary:   #d32f2f;
-  --accent-secondary: #ff6659;
-  --accent-pink:      #ff6b9d;
-  --accent-gold:      #ffd166;
-  --text-primary:     #f0f4ff;
-  --text-secondary:   #8892b0;
-  --text-muted:       #6b7a99;   /* lightened for WCAG AA contrast on dark bg */
-  --glass-bg:         rgba(255, 255, 255, 0.04);
-  --glass-border:     rgba(255, 255, 255, 0.08);
-  --glass-shadow:     rgba(0, 0, 0, 0.4);
-  --gradient-type:    linear-gradient(135deg, #d32f2f 0%, #ff6659 40%, #ff6b9d 80%, #ffd166 100%);
-  --font-main:        'Outfit', sans-serif;
+  --bg-base:          #050505;
+  --accent-primary:   #00ff66; /* Terminal green */
+  --accent-secondary: #00b8ff;
+  --accent-pink:      #ff3366;
+  --accent-gold:      #ffb800;
+  --text-primary:     #e0e0e0;
+  --text-secondary:   #a0a0a0;
+  --text-muted:       #666666;
+  --glass-bg:         rgba(15, 15, 15, 0.95);
+  --glass-border:     rgba(0, 255, 102, 0.3); /* green borders */
+  --glass-shadow:     rgba(0, 0, 0, 0.8);
+  --gradient-type:    linear-gradient(90deg, #00ff66 0%, #00b8ff 100%);
+  --font-main:        'JetBrains Mono', monospace; /* Monospace everywhere */
   --font-mono:        'JetBrains Mono', monospace;
-  --radius-sm:        10px;
-  --radius-md:        18px;
-  --radius-lg:        28px;
-  --radius-xl:        40px;
+  --radius-sm:        0px; /* Sharp corners */
+  --radius-md:        2px;
+  --radius-lg:        4px;
+  --radius-xl:        4px;
 }
 
 html {

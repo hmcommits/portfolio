@@ -71,18 +71,21 @@ export default function Hero() {
           Available for opportunities
         </motion.div>
 
-        {/* Name */}
+        {/* Name as Terminal */}
         <motion.h1 className={styles.name} variants={fadeDown} transition={{ duration: 0.55 }}>
-          Hi, I am<br />
-          <span className={styles.nameHighlight}>Harsh Prakash<br />Mayekar</span>
+          <span className={styles.termUser}>harsh@dev</span>
+          <span className={styles.termColon}>:</span>
+          <span className={styles.termPath}>~/portfolio</span>
+          <span className={styles.termPrompt}>$</span> ./whoami<br />
+          <span className={styles.nameHighlight}>Harsh Prakash Mayekar</span>
         </motion.h1>
 
-        {/* Typewriter — decorative for screen readers; static list provided instead */}
+        {/* Typewriter */}
         <motion.div className={styles.typewriterRow} variants={fadeDown} transition={{ duration: 0.55 }}>
           <span className="sr-only">I am a {WORDS.join(', ')}.</span>
-          <span className={styles.typewriterPrefix} aria-hidden="true">I am a&nbsp;</span>
+          <span className={styles.typewriterPrefix} aria-hidden="true">&gt;&gt; Role:&nbsp;</span>
           <span className={styles.typewriterWord} aria-hidden="true">{typedWord}</span>
-          <span className={styles.typewriterCursor} aria-hidden="true">|</span>
+          <span className={styles.typewriterCursor} aria-hidden="true">_</span>
         </motion.div>
 
         {/* About */}
