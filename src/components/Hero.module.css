@@ -53,19 +53,10 @@
   letter-spacing: -0.5px;
 }
 .nameHighlight {
-  background: linear-gradient(120deg, #ffffff 0%, #ffcccc 25%, #ffd8c2 50%, #ffcccc 75%, #ffffff 100%);
-  background-size: 250% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   display: block;
-  animation: namePan 7s ease-in-out infinite;
+  color: #111;
+  text-shadow: 2px 2px 0px var(--accent-primary);
 }
-@keyframes namePan {
-  0%, 100% { background-position: 0% center; }
-  50%      { background-position: 100% center; }
-}
-
 /* ─── Typewriter ─── */
 .typewriterRow {
   display: flex;
@@ -205,39 +196,28 @@
   align-items: center;
   gap: 12px;
   padding: 13px 19px;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   width: max-content;
-  background: rgba(10, 15, 32, 0.72);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  animation: floatCard 6s ease-in-out infinite;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-}
-.achievementBottom .achievementCard {
-  animation-duration: 7s;
-  animation-delay: 1.4s;
-}
-.achievementMid .achievementCard {
-  animation-duration: 8s;
-  animation-delay: 0.7s;
+  background: #fff;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0px #111;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .achievementPos:hover .achievementCard {
-  border-color: rgba(255, 209, 102, 0.4);
-  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55), 0 0 24px rgba(255, 209, 102, 0.15);
-}
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-9px); }
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #111;
 }
 
-.achieveIcon { font-size: 1.6rem; filter: drop-shadow(0 0 8px rgba(255,209,102,0.6)); }
+.achieveIcon { font-size: 1.6rem; }
 .achieveInfo { display: flex; flex-direction: column; }
 .achieveNumber {
   font-size: 1.4rem;
   font-weight: 800;
   line-height: 1;
-  color: var(--accent-primary); text-shadow: 2px 2px 0px #111;
+  color: var(--accent-primary);
+  text-shadow: none;
 }
-.achieveLabel { font-size: 0.72rem; color: var(--text-secondary); font-weight: 500; white-space: nowrap; }
+.achieveLabel { font-size: 0.72rem; color: #111; font-weight: 700; white-space: nowrap; text-transform: uppercase; }
 
 /* ─── Profile photo ─── */
 .photoWrapper {
@@ -316,19 +296,22 @@
 /* ─── Social bar ─── */
 .socialBar {
   width: 100%;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   padding: 16px 20px;
   margin-top: 24px;
   display: flex;
   align-items: center;
   gap: 14px;
+  background: #fff;
+  border: 4px solid #111;
+  box-shadow: 6px 6px 0px #111;
 }
 .socialLabel {
   font-size: 0.62rem;
-  font-weight: 600;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.8px;
-  color: var(--text-muted);
+  color: #111;
   white-space: nowrap;
 }
 .socialIcons {
@@ -341,40 +324,30 @@
 .socialIcon {
   width: 42px;
   height: 42px;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  color: var(--text-secondary);
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: #fff;
+  border: 2px solid #111;
+  color: #111;
+  transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
 }
 .socialIcon svg { width: 18px; height: 18px; position: relative; z-index: 1; }
-.socialIcon::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  border-radius: inherit;
-}
-.socialIcon:hover { transform: translateY(-5px) scale(1.14); color: #fff; }
-.socialIcon:hover::before { opacity: 1; }
 
-.whatsapp::before { background: #25d366; }
-.whatsapp:hover   { border-color: #25d366; box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
-.linkedin::before { background: #0a66c2; }
-.linkedin:hover   { border-color: #0a66c2; box-shadow: 0 6px 20px rgba(10,102,194,0.4); }
-.email::before   { background: #ea4335; }
-.email:hover     { border-color: #ea4335; box-shadow: 0 6px 20px rgba(234,67,53,0.3); }
-.youtube::before  { background: #ff0000; }
-.youtube:hover    { border-color: #ff0000; box-shadow: 0 6px 20px rgba(255,0,0,0.4); }
-.github::before   { background: #333; }
-.github:hover     { border-color: #888; box-shadow: 0 6px 20px rgba(100,100,100,0.3); }
+.socialIcon.whatsapp { color: #25d366; }
+.socialIcon.linkedin { color: #0a66c2; }
+.socialIcon.email { color: #ea4335; }
+.socialIcon.youtube { color: #ff0000; }
+.socialIcon.github { color: #111; }
+
+.socialIcon:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #111;
+}
 
 /* ─── Responsive ─── */
 /* Mobile order puts identity + photo + CTAs in the first screen;

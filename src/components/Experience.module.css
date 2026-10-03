@@ -42,18 +42,14 @@
 }
 
 .sectionTitle {
+  color: #111;
   font-size: clamp(2rem, 3.5vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -0.5px;
   line-height: 1.1;
 }
 
-.titleGrad {
-  background: linear-gradient(135deg, #ffffff 0%, #ffcccc 50%, #ffd8c2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.titleGrad { color: var(--accent-primary); text-shadow: 2px 2px 0px #111; }
 
 /* ─── Timeline / Experience Card ─── */
 .timeline {

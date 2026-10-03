@@ -19,9 +19,11 @@ const LiveIcon = () => (
 function TechPill({ techKey }) {
   const tech = TECH_ICONS[techKey]
   if (!tech) return <span className={styles.pill}>{techKey}</span>
+  // If the brand color is white, use black instead so it's visible on the white pills
+  const iconColor = tech.color === '#ffffff' ? '#111' : tech.color;
   return (
     <span className={styles.pill}>
-      <span className={styles.pillIcon} style={{ color: tech.color }}>{tech.svg}</span>
+      <span className={styles.pillIcon} style={{ color: iconColor }}>{tech.svg}</span>
       {tech.label}
     </span>
   )

@@ -85,7 +85,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 0;
   border: 4px solid #111;
   box-shadow: 12px 12px 0px #111;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -102,16 +102,16 @@
 
 .mockupImage {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   border-radius: 0;
-  border: 3px solid #111;
-  box-shadow: 4px 4px 0px #111;
+  border: none;
   /* Transform handled by framer-motion parallax */
   transition: filter 0.2s ease;
 }
 
 .slideContent:hover .mockupImage {
-  filter: brightness(1.1);
+  filter: saturate(1.2);
 }
 
 /* ── Content Column (Right) ── */
@@ -151,7 +151,7 @@
 }
 
 .projectTitle {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 24px;
@@ -207,14 +207,14 @@
   justify-content: center;
   width: 14px;
   height: 14px;
+  color: #111;
 }
 
 /* ── Action Links (Micro-details) ── */
 .actionLinks {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 32px;
 }
 
@@ -222,42 +222,35 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--text-primary);
+  color: #111;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 800;
   text-decoration: none;
   width: max-content;
   position: relative;
-  transition: color 0.3s ease;
+  transition: all 0.2s ease;
+  background: #fff;
+  border: 3px solid #111;
+  padding: 10px 20px;
+  box-shadow: 4px 4px 0px #111;
+  text-transform: uppercase;
 }
 
 .actionLink svg {
   width: 18px;
   height: 18px;
-  color: var(--text-muted);
-  transition: color 0.3s ease;
+  color: #111;
+  transition: color 0.2s ease;
 }
 
 .actionLink .arrow {
-  width: 16px;
-  height: 16px;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  color: var(--accent-primary);
+  display: none;
 }
 
 .actionLink:hover {
-  color: var(--accent-primary);
-}
-
-.actionLink:hover svg {
-  color: var(--accent-primary);
-}
-
-.actionLink:hover .arrow {
-  opacity: 1;
-  transform: translateX(0);
+  background: var(--accent-gold);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #111;
 }
 
 /* ── Responsive Design ── */

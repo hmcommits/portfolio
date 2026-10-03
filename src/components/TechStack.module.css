@@ -28,18 +28,14 @@
 }
 
 .sectionTitle {
+  color: #111;
   font-size: clamp(2rem, 3.5vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -0.5px;
   line-height: 1.1;
 }
 
-.sectionTitleGrad {
-  background: linear-gradient(135deg, #fff 0%, #ffcccc 50%, #ffd8c2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.sectionTitleGrad { color: var(--accent-primary); text-shadow: 2px 2px 0px #111; }
 
 .sectionDesc {
   margin-top: 12px;
@@ -135,7 +131,7 @@
 .techPillName {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #111;
   white-space: nowrap;
 }
 
@@ -217,7 +213,7 @@
 .toolName {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #111;
 }
 
 .toolDesc {
