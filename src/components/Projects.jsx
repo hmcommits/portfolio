@@ -17,14 +17,10 @@ const LiveIcon = () => (
   </svg>
 )
 
-/* ── Single keyboard key (icon + label; label always visible on touch) ── */
+/* ── Single keyboard key ── */
 function TechKey({ techKey }) {
   const tech = TECH_ICONS[techKey]
-
-  if (!tech) {
-    return <div className={`${styles.key} ${styles.textKey}`}>{techKey}</div>
-  }
-
+  if (!tech) return <div className={`${styles.key} ${styles.textKey}`}>{techKey}</div>
   return (
     <div className={styles.keyWrap}>
       <motion.div
@@ -40,64 +36,13 @@ function TechKey({ techKey }) {
   )
 }
 
-/* ── Project image with fallback ── */
-function ProjectImage({ project, onOpen }) {
-  const [err, setErr] = useState(false)
-  return (
-    <button
-      type="button"
-      className={styles.imageWrapper}
-      onClick={() => !err && onOpen(project.image, `${project.title} — screenshot`)}
-      aria-label={`View ${project.title} screenshot full size`}
-    >
-      {!err ? (
-        <>
-          <img
-            src={project.image}
-            alt={`${project.title} screenshot`}
-            className={styles.projectImage}
-            width={project.imageWidth}
-            height={project.imageHeight}
-            loading="lazy"
-            decoding="async"
-            onError={() => setErr(true)}
-          />
-          <span className={styles.imageZoomHint} aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
-            </svg>
-          </span>
-        </>
-      ) : (
-        <span className={styles.imagePlaceholder}>
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" opacity="0.3">
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <polyline points="21 15 16 10 5 21" />
-          </svg>
-        </span>
-      )}
-    </button>
-  )
-}
-
-/* ── Action button ── */
+/* ── Action button — stops click from bubbling to the card anchor ── */
 function ActionBtn({ href, Icon, label, variant }) {
   const cls = {
     github: styles.btnGithub,
-    live: styles.btnLive,
-    demo: styles.btnDemo,
-    disabled: styles.btnDisabled,
+    live:   styles.btnLive,
+    demo:   styles.btnDemo,
   }[variant]
-
-  if (!href) {
-    return (
-      <span className={`${styles.actionBtn} ${styles.btnDisabled}`}>
-        <Icon />
-        {label}
-      </span>
-    )
-  }
 
   return (
     <motion.a
@@ -107,6 +52,7 @@ function ActionBtn({ href, Icon, label, variant }) {
       className={`${styles.actionBtn} ${cls}`}
       whileHover={{ scale: 1.04, y: -2 }}
       whileTap={{ scale: 0.97 }}
+      onClick={(e) => e.stopPropagation()}
     >
       <Icon />
       {label}
@@ -152,74 +98,96 @@ export default function Projects() {
         </h2>
       </motion.div>
 
-      {/* Project cards — image side alternates on desktop */}
-      {PROJECTS.map((project, i) => (
-        <motion.article
-          key={project.id}
-          className={`${styles.projectCard} ${i % 2 === 1 ? styles.reverse : ''}`}
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ delay: i * 0.08 }}
-        >
-          {/* ── Text panel ── */}
-          <div className={styles.left}>
-            <span className={styles.projectNumber}>
-              {String(i + 1).padStart(2, '0')}
-            </span>
+      {/* Project cards — entire card navigates to live → demo → github */}
+      {PROJECTS.map((project, i) => {
+        const cardHref = project.live || project.demo || project.github || '#'
 
-            <h3 className={styles.projectTitle}>{project.title}</h3>
+        return (
+          <motion.a
+            key={project.id}
+            href={cardHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.projectCard} ${i % 2 === 1 ? styles.reverse : ''}`}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ delay: i * 0.08 }}
+            aria-label={`Open ${project.title}`}
+          >
+            {/* ── Text panel ── */}
+            <div className={styles.left}>
+              <span className={styles.projectNumber}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
 
-            <p className={styles.projectDesc}>{project.description}</p>
+              <h3 className={styles.projectTitle}>{project.title}</h3>
 
-            {/* Keyboard tech stack */}
-            <div>
-              <p className={styles.keyboardLabel}>Tech Stack</p>
-              <div className={styles.keyboard} role="list" aria-label="Tech stack">
-                {project.techKeys.map((k) => (
-                  <TechKey key={k} techKey={k} />
-                ))}
+              <p className={styles.projectDesc}>{project.description}</p>
+
+              {/* Tech stack keyboard */}
+              <div>
+                <p className={styles.keyboardLabel}>Tech Stack</p>
+                <div className={styles.keyboard} role="list" aria-label="Tech stack">
+                  {project.techKeys.map((k) => (
+                    <TechKey key={k} techKey={k} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Buttons — e.stopPropagation so they don't trigger the card anchor */}
+              <div className={styles.actions}>
+                {project.github && (
+                  <ActionBtn href={project.github} Icon={GithubIcon} label="GitHub" variant="github" />
+                )}
+                {project.live && (
+                  <ActionBtn href={project.live} Icon={LiveIcon} label="Try It" variant="live" />
+                )}
+                {project.demo && (
+                  <ActionBtn href={project.demo} Icon={DemoIcon} label="Demo" variant="demo" />
+                )}
               </div>
             </div>
 
-            {/* Action buttons — only rendered when the link exists */}
-            <div className={styles.actions}>
-              {project.github && (
-                <ActionBtn
-                  href={project.github}
-                  Icon={GithubIcon}
-                  label="GitHub"
-                  variant="github"
+            {/* ── Image panel — click opens lightbox instead of navigating ── */}
+            <div className={styles.right}>
+              <div
+                className={styles.imageWrapper}
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  openLightbox(project.image, `${project.title} — screenshot`)
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${project.title} screenshot`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    openLightbox(project.image, `${project.title} — screenshot`)
+                  }
+                }}
+              >
+                <img
+                  src={project.image}
+                  alt={`${project.title} screenshot`}
+                  className={styles.projectImage}
+                  width={project.imageWidth}
+                  height={project.imageHeight}
+                  loading="lazy"
+                  decoding="async"
                 />
-              )}
-              {/* Primary CTA: Try It if live exists, otherwise Demo */}
-              {(project.live || project.demo) && (
-                <ActionBtn
-                  href={project.live || project.demo}
-                  Icon={project.live ? LiveIcon : DemoIcon}
-                  label={project.live ? 'Try It' : 'Demo'}
-                  variant={project.live ? 'live' : 'demo'}
-                />
-              )}
-              {/* Show Demo separately only when both live and demo exist */}
-              {project.live && project.demo && (
-                <ActionBtn
-                  href={project.demo}
-                  Icon={DemoIcon}
-                  label="Demo"
-                  variant="demo"
-                />
-              )}
+                <span className={styles.imageZoomHint} aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
+                  </svg>
+                </span>
+              </div>
             </div>
-          </div>
-
-          {/* ── Image panel ── */}
-          <div className={styles.right}>
-            <ProjectImage project={project} onOpen={openLightbox} />
-          </div>
-        </motion.article>
-      ))}
+          </motion.a>
+        )
+      })}
     </section>
   )
 }
