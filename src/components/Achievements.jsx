@@ -86,7 +86,7 @@ const ACHIEVEMENTS = [
     emoji: '🌊',
     title: 'Top 50 — WeMakeDevs × Coral Hackathon',
     sub: 'WeMakeDevs × Coral Protocol',
-    badge: 'Top 50 Nationally',
+    badge: 'Top 50 Internationally',
     image: '/assets/coralhackathon.webp',
     imageWidth: 1400, imageHeight: 786,
   },

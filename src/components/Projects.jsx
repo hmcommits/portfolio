@@ -183,26 +183,34 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Action buttons */}
+            {/* Action buttons — only rendered when the link exists */}
             <div className={styles.actions}>
-              <ActionBtn
-                href={project.github}
-                Icon={GithubIcon}
-                label="GitHub"
-                variant={project.github ? 'github' : 'disabled'}
-              />
-              <ActionBtn
-                href={project.live}
-                Icon={LiveIcon}
-                label="Try It"
-                variant={project.live ? 'live' : 'disabled'}
-              />
-              <ActionBtn
-                href={project.demo}
-                Icon={DemoIcon}
-                label="Demo"
-                variant={project.demo ? 'demo' : 'disabled'}
-              />
+              {project.github && (
+                <ActionBtn
+                  href={project.github}
+                  Icon={GithubIcon}
+                  label="GitHub"
+                  variant="github"
+                />
+              )}
+              {/* Primary CTA: Try It if live exists, otherwise Demo */}
+              {(project.live || project.demo) && (
+                <ActionBtn
+                  href={project.live || project.demo}
+                  Icon={project.live ? LiveIcon : DemoIcon}
+                  label={project.live ? 'Try It' : 'Demo'}
+                  variant={project.live ? 'live' : 'demo'}
+                />
+              )}
+              {/* Show Demo separately only when both live and demo exist */}
+              {project.live && project.demo && (
+                <ActionBtn
+                  href={project.demo}
+                  Icon={DemoIcon}
+                  label="Demo"
+                  variant="demo"
+                />
+              )}
             </div>
           </div>
 
