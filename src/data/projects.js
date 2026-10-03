@@ -9,8 +9,8 @@ export const PROJECTS = [
     description:
       'Bridge the gap between ideation and implementation. Draw UI wireframes or logic flowcharts on an integrated whiteboard — LogicLens uses a multi-modal AI pipeline to instantly synthesize a fully functional, multi-file React application with real-time code streaming and a live interactive sandbox.',
     image: '/assets/logiclens.webp',
-    imageWidth: 1280,
-    imageHeight: 960,
+    imageWidth: 2048,
+    imageHeight: 1490,
     github: 'https://github.com/hmcommits/LogicLens',
     live: 'https://logic-lens-mauve.vercel.app/',
     demo: 'https://youtu.be/AGeLCxv_Vjs',
