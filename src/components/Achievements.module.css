@@ -41,7 +41,7 @@
   gap: 8px;
   background: rgba(255,209,102,0.08);
   border: 1px solid rgba(255,209,102,0.28);
-  border-radius: 100px;
+  border-radius: 0;
   padding: 5px 16px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -105,28 +105,23 @@
 }
 
 .hackCard {
-  border-radius: 22px;
+  border-radius: 0;
   overflow: hidden;
-  border: 1px solid rgba(255,209,102,0.18);
-  background: rgba(255,255,255,0.03);
-  transition: all 0.3s ease;
+  border: 4px solid #111;
+  background: #fff;
+  transition: all 0.2s ease;
   cursor: default;
   position: relative;
+  box-shadow: 6px 6px 0px #111;
 }
 .hackCard:hover {
-  border-color: rgba(255,209,102,0.4);
-  box-shadow: 0 20px 60px rgba(255,209,102,0.1);
-  transform: translateY(-5px);
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0px #111;
 }
 /* Top shimmer line */
 .hackCard::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, #ffd166 40%, #ff6b9d 60%, transparent);
-  opacity: 0; transition: opacity 0.3s;
+  display: none;
 }
-.hackCard:hover::after { opacity: 1; }
 
 /* Image area — tall and visible */
 .hackImg {
@@ -135,15 +130,15 @@
   object-fit: cover;
   object-position: top center;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.2s ease;
+  border-bottom: 4px solid #111;
 }
-.hackCard:hover .hackImg { transform: scale(1.04); }
+.hackCard:hover .hackImg { filter: saturate(1.2); }
 
 /* Text area — solid dark bg, no overlay obscuring image */
 .hackBody {
   padding: 22px 24px 26px;
-  background: rgba(5, 10, 21, 0.6);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  background: #fff;
 }
 
 .hackRankRow {
@@ -155,36 +150,39 @@
 .hackMedal {
   font-size: 1.3rem;
   line-height: 1;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
 }
 .hackRank {
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-family: var(--font-mono);
   padding: 3px 10px;
-  border-radius: 100px;
+  border-radius: 0;
 }
-.rankGold   { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
-.rankSilver { background: rgba(209,213,219,0.12); color: #d1d5db; border: 1px solid rgba(209,213,219,0.25); }
+.rankGold   { background: var(--accent-gold); color: #111; border: 2px solid #111; box-shadow: 2px 2px 0px #111; }
+.rankSilver { background: #eee; color: #111; border: 2px solid #111; box-shadow: 2px 2px 0px #111; }
 
 .hackTitle {
   font-size: 1.15rem;
-  font-weight: 700;
-  color: #f0f4ff;
+  font-weight: 800;
+  color: #111;
   line-height: 1.3;
   margin-bottom: 6px;
+  text-transform: uppercase;
+  font-family: var(--font-heading);
 }
 .hackOrg {
   font-size: 0.82rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 .hackDesc {
   margin-top: 10px;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   line-height: 1.65;
+  font-weight: 600;
 }
 
 /* ════════════════════════════════════
@@ -199,17 +197,17 @@
 }
 
 .achieveCard {
-  border-radius: 20px;
+  border-radius: 0;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.07);
-  background: rgba(255,255,255,0.03);
-  transition: all 0.3s ease;
+  border: 4px solid #111;
+  background: #fff;
+  transition: all 0.2s ease;
   cursor: default;
+  box-shadow: 6px 6px 0px #111;
 }
 .achieveCard:hover {
-  border-color: rgba(211, 47, 47,0.3);
-  box-shadow: 0 12px 40px rgba(211, 47, 47,0.12);
-  transform: translateY(-4px);
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0px #111;
 }
 .achieveImg {
   width: 100%;
@@ -217,13 +215,12 @@
   object-fit: cover;
   object-position: top center;
   display: block;
-  transition: transform 0.45s ease;
+  border-bottom: 4px solid #111;
 }
-.achieveCard:hover .achieveImg { transform: scale(1.05); }
 
 .achieveBody {
   padding: 18px 20px 22px;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  background: #fff;
 }
 .achieveEmoji {
   font-size: 1.3rem;
@@ -247,7 +244,7 @@
   gap: 5px;
   background: rgba(211, 47, 47,0.1);
   border: 1px solid rgba(211, 47, 47,0.25);
-  border-radius: 100px;
+  border-radius: 0;
   padding: 3px 11px;
   font-size: 0.65rem;
   font-weight: 700;
@@ -271,7 +268,7 @@
 }
 
 .certCard {
-  border-radius: 22px;
+  border-radius: 0;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.07);
   background: rgba(255,255,255,0.03);
@@ -314,7 +311,7 @@
   gap: 5px;
   background: rgba(255, 102, 89,0.08);
   border: 1px solid rgba(255, 102, 89,0.22);
-  border-radius: 100px;
+  border-radius: 0;
   padding: 3px 11px;
   font-size: 0.63rem;
   font-weight: 700;
@@ -340,7 +337,7 @@
 }
 .certIssuerIcon {
   width: 18px; height: 18px;
-  border-radius: 4px;
+  border-radius: 0;
   background: rgba(255,255,255,0.08);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;

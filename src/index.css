@@ -8,24 +8,25 @@
 }
 
 :root {
-  --bg-base:          #120303;
-  --accent-primary:   #d32f2f;
-  --accent-secondary: #ff6659;
-  --accent-pink:      #ff6b9d;
-  --accent-gold:      #ffd166;
-  --text-primary:     #f0f4ff;
-  --text-secondary:   #8892b0;
-  --text-muted:       #6b7a99;   /* lightened for WCAG AA contrast on dark bg */
-  --glass-bg:         rgba(255, 255, 255, 0.04);
-  --glass-border:     rgba(255, 255, 255, 0.08);
-  --glass-shadow:     rgba(0, 0, 0, 0.4);
-  --gradient-type:    linear-gradient(135deg, #d32f2f 0%, #ff6659 40%, #ff6b9d 80%, #ffd166 100%);
-  --font-main:        'Outfit', sans-serif;
+  --bg-base:          #f2f0e9; /* Off-white / cream paper */
+  --accent-primary:   #ff3366; /* Hot pink */
+  --accent-secondary: #00e5ff; /* Cyan */
+  --accent-pink:      #ff003c;
+  --accent-gold:      #ffcc00;
+  --text-primary:     #111111;
+  --text-secondary:   #333333;
+  --text-muted:       #555555;
+  --glass-bg:         #ffffff; /* Solid white instead of glass */
+  --glass-border:     #111111; /* Hard black border */
+  --glass-shadow:     6px 6px 0px rgba(17, 17, 17, 1); /* Hard shadow */
+  --gradient-type:    var(--text-primary);
+  --font-main:        'Space Grotesk', sans-serif;
+  --font-heading:     'Syne', sans-serif;
   --font-mono:        'JetBrains Mono', monospace;
-  --radius-sm:        10px;
-  --radius-md:        18px;
-  --radius-lg:        28px;
-  --radius-xl:        40px;
+  --radius-sm:        0px;
+  --radius-md:        4px;
+  --radius-lg:        8px;
+  --radius-xl:        12px;
 }
 
 html {
@@ -97,20 +98,17 @@ section[id], main[id] {
   background: linear-gradient(180deg, rgba(211, 47, 47, 0.8), rgba(255, 102, 89, 0.6));
 }
 
-/* ─── Shared Glass Card ─── */
+/* ─── Shared Neo Card ─── */
 .glass-card {
   background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 0 8px 32px var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.06);
+  border: 3px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-md);
 }
 
-/* Cheaper blur on mobile GPUs */
 @media (max-width: 640px) {
   .glass-card {
-    backdrop-filter: blur(10px) saturate(160%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%);
+    box-shadow: 4px 4px 0px rgba(17,17,17,1);
   }
 }
 

@@ -23,7 +23,7 @@
   gap: 8px;
   background: transparent;
   border: 1px solid var(--text-muted);
-  border-radius: 100px;
+  border-radius: 0;
   padding: 6px 18px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -79,38 +79,38 @@
 .mockupContainer {
   width: 100%;
   height: 100%;
-  border-radius: 32px; /* Large rounded panels */
+  border-radius: 0; /* Sharper */
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: 4px solid #111;
+  box-shadow: 12px 12px 0px #111;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.projectBlock:hover .mockupContainer {
-  transform: scale(0.98);
+.slideContent:hover .mockupContainer {
+  transform: translate(4px, 4px);
+  box-shadow: 8px 8px 0px #111;
 }
 
 .mockupGlow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.2) 0%, transparent 60%);
-  pointer-events: none;
+  display: none; /* No gradients or glows in brutalism */
 }
 
 .mockupImage {
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0px #111;
   /* Transform handled by framer-motion parallax */
-  transition: filter 0.4s ease;
+  transition: filter 0.2s ease;
 }
 
-.projectBlock:hover .mockupImage {
+.slideContent:hover .mockupImage {
   filter: brightness(1.1);
 }
 
@@ -151,30 +151,33 @@
 }
 
 .projectTitle {
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 24px;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  font-family: var(--font-heading);
 }
 
-.projectBlock:hover .projectTitle {
+.slideContent:hover .projectTitle {
   color: var(--accent-primary);
-  transition: color 0.3s ease;
+  text-shadow: 2px 2px 0px #111;
 }
 
 .projectDesc {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.7;
   color: var(--text-secondary);
   margin-bottom: 32px;
+  font-weight: 600;
 }
 
 /* ── Metadata Pills ── */
 .pillContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 40px;
 }
 
@@ -183,18 +186,19 @@
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 100px;
+  background: #fff;
+  border: 2px solid #111;
   font-size: 0.85rem;
-  color: var(--text-primary);
-  font-weight: 500;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  color: #111;
+  font-weight: 700;
+  box-shadow: 2px 2px 0px #111;
+  text-transform: uppercase;
+  transition: transform 0.2s ease;
 }
 
-.projectBlock:hover .pill {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.15);
+.slideContent:hover .pill {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #111;
 }
 
 .pillIcon {
@@ -270,7 +274,7 @@
 @media (max-width: 768px) {
   .section { padding: 80px 24px; }
   .projectStack { gap: 100px; }
-  .mockupContainer { padding: 20px; border-radius: 20px; }
+  .mockupContainer { padding: 20px; border-radius: 0; }
   .projectTitle { font-size: 2rem; }
   .projectDesc { font-size: 1rem; }
 }
