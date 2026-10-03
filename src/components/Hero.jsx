@@ -89,11 +89,8 @@ export default function Hero() {
         <motion.div className={`${styles.aboutCard} glass-card`} variants={fadeUp} transition={{ duration: 0.6 }}>
           <div className={styles.aboutGlow} aria-hidden="true" />
           <p className={styles.aboutText}>
-            Computer Engineering student at <strong>Datta Meghe College of Engineering</strong>.<br /><br />
-            Full-stack developer passionate about building impactful digital products.
-            I develop scalable web and mobile applications with modern technologies.
-            Experienced in creating AI-powered features and reliable backend systems.
-            Focused on delivering clean, user-centered, and high-performance solutions.<br /><br />
+            I am a third-year Computer Engineering student at <strong>Datta Meghe College of Engineering</strong> specializing in scalable full-stack applications and AI-integrated systems.<br /><br />
+            I focus on bridging the gap between complex backend architecture and seamless, user-centered design to build impactful digital products. I specialize in deploying robust solutions under tight deadlines. Whether competing solo or as a team leader for cross-functional teams.<br /><br />
             Open to <em>internships</em> and <em>collaborations</em>.
           </p>
         </motion.div>
