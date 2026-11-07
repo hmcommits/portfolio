@@ -1,3 +1,5 @@
+import { IMAGES } from './images'
+
 // ─── Projects data ─────────────────────────────────────────────────────────────
 // Images are optimized WebP (originals archived in /assets-original).
 // `imageAspect` = intrinsic width/height, used to prevent layout shift.
@@ -8,7 +10,7 @@ export const PROJECTS = [
     title: 'LogicLens',
     description:
       'Bridge the gap between ideation and implementation. Draw UI wireframes or logic flowcharts on an integrated whiteboard — LogicLens uses a multi-modal AI pipeline to instantly synthesize a fully functional, multi-file React application with real-time code streaming and a live interactive sandbox.',
-    image: '/assets/logiclens.webp',
+    image: IMAGES.logiclens,
     imageWidth: 2048,
     imageHeight: 1490,
     github: 'https://github.com/hmcommits/LogicLens',
@@ -21,7 +23,7 @@ export const PROJECTS = [
     title: 'VisionDrift',
     description:
       'Drive any racing game with your bare hands — no wheel, no controller, no keyboard. VisionDrift is a real-time computer vision controller that turns your webcam into a steering wheel using MediaPipe hand landmarker. The game receives standard hardware scan codes seamlessly.',
-    image: '/assets/visiondrift.webp',
+    image: IMAGES.visiondrift,
     imageWidth: 1280,
     imageHeight: 853,
     github: 'https://github.com/hmcommits/VisionDrift',
@@ -34,7 +36,7 @@ export const PROJECTS = [
     title: 'CodeSpotlight',
     description:
       'A centralized showcase directory where developers host deployed projects, generate AI-powered technical deep-dives, and present their work through a polished portfolio interface. Paste a GitHub URL — CodeSpotlight generates architecture diagrams, commit heatmaps, language visualizations, and a fully formatted README.',
-    image: '/assets/codespotlight.webp',
+    image: IMAGES.codespotlight,
     imageWidth: 1280,
     imageHeight: 960,
     github: 'https://github.com/hmcommits/CodeSpotlight',
@@ -47,7 +49,7 @@ export const PROJECTS = [
     title: 'AttentionX',
     description:
       'A fully autonomous AI-driven video repurposing engine. Transform hours of long-form video (podcasts, interviews, keynotes) into viral 60-second vertical Shorts using Narrative Intelligence — transcribes with faster-whisper, ranks "Golden Nuggets" by Virality Score, tracks speaker faces, renders karaoke captions, and exports 9:16 vertical video.',
-    image: '/assets/attentionx.webp',
+    image: IMAGES.attentionx,
     imageWidth: 1280,
     imageHeight: 960,
     github: 'https://github.com/hmcommits/AttentionX',
