@@ -25,3 +25,7 @@ dist-ssr
 
 # Original unoptimized images (WebP versions live in public/assets)
 assets-original/
+
+# Environment
+.env
+.env*.local

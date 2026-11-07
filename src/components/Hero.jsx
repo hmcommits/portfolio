@@ -3,7 +3,9 @@ import { motion } from 'framer-motion'
 import useTypewriter, { WORDS } from '../hooks/useTypewriter'
 import { BrandIcon } from '../data/icons'
 import styles from './Hero.module.css'
-import profileImg from '/assets/profile.webp'
+import { IMAGES } from '../data/images'
+
+const profileImg = IMAGES.profile
 
 /* ── animation variants ── */
 const fadeDown  = { hidden: { opacity: 0, y: -20 }, show: { opacity: 1, y: 0 } }

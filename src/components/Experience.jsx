@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import Lightbox from './Lightbox'
 import styles from './Experience.module.css'
+import { IMAGES } from '../data/images'
 
 /* ── Safe Image component ── */
 function SafeImg({ src, alt, className }) {
@@ -33,12 +34,12 @@ const EXPERIENCE_DATA = [
       {
         id: 'cert',
         title: 'Certificate of Internship',
-        image: '/assets/mccinternshipcertificate.webp',
+        image: IMAGES.mccinternshipcertificate,
       },
       {
         id: 'lor',
         title: 'Letter of Recommendation',
-        image: '/assets/mccinternshiplor.webp',
+        image: IMAGES.mccinternshiplor,
       }
     ]
   }

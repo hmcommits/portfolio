@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import Lightbox from './Lightbox'
 import styles from './Achievements.module.css'
+import { IMAGES } from '../data/images'
 
 /* ── Safe image — hides on load error ── */
 function SafeImg({ src, alt, className, width, height, style }) {
@@ -41,7 +42,7 @@ const HACKATHONS = [
     rankClass: 'rankGold',
     title: 'RocketRide × HackwithIndia Hackathon',
     org: 'BVUDET NM Chapter, Navi Mumbai',
-    image: '/assets/rocketride.webp',
+    image: IMAGES.rocketride,
     imageWidth: 1599, imageHeight: 899,
     desc: 'Secured 1st Runner-Up at a hackathon organized by RocketRide, Devnovate, and HackwithIndia, hosted at Bharati Vidyapeeth University, Navi Mumbai. Pitched directly to Rod Christensen and Ryan Christensen — the founders behind RocketRide — making this milestone genuinely unforgettable.',
   },
@@ -52,7 +53,7 @@ const HACKATHONS = [
     rankClass: 'rankGold',
     title: 'Pitch-Perfect Ideathon',
     org: 'NHITM — IIC & R&D Cell, Navi Mumbai',
-    image: '/assets/nhitm.webp',
+    image: IMAGES.nhitm,
     imageWidth: 1536, imageHeight: 1089,
     desc: 'Secured 2nd Position at Pitch-Perfect, organized by New Horizon Institute of Technology & Management (IIC & R&D Cell). Pitched NeelKavach — a robust blockchain-based verification solution to eliminate fraudulent claims and ghost forests in mangrove restoration projects.',
   },
@@ -63,7 +64,7 @@ const HACKATHONS = [
     rankClass: 'rankGold',
     title: 'AttentionX Hackathon',
     org: 'by UnsaidTalks',
-    image: '/assets/unsaidtalkshackathon.webp',
+    image: IMAGES.unsaidtalkshackathon,
     imageWidth: 1400, imageHeight: 990,
     desc: 'Built AttentionX — an autonomous AI video repurposing engine that converts long-form podcasts into viral 60-second Shorts using Narrative Intelligence.',
   },
@@ -74,7 +75,7 @@ const HACKATHONS = [
     rankClass: 'rankSilver',
     title: 'Devlynix Buildathon',
     org: 'by Devlynix',
-    image: '/assets/devlynixhackathon.webp',
+    image: IMAGES.devlynixhackathon,
     imageWidth: 1400, imageHeight: 992,
     desc: 'Competed against top developers in an intensive buildathon and secured 2nd Runner Up, delivering a high-quality product under time constraints.',
   },
@@ -87,7 +88,7 @@ const ACHIEVEMENTS = [
     title: 'Top 50 — WeMakeDevs × Coral Hackathon',
     sub: 'WeMakeDevs × Coral Protocol',
     badge: 'Top 50 Internationally',
-    image: '/assets/coralhackathon.webp',
+    image: IMAGES.coralhackathon,
     imageWidth: 1400, imageHeight: 786,
   },
 ]
@@ -98,7 +99,7 @@ const CERTS = [
     badge: 'Certification',
     title: 'Software Engineering Job Simulation',
     issuer: 'JPMorgan Chase & Co.',
-    image: '/assets/jpmorganjobsim.webp',
+    image: IMAGES.jpmorganjobsim,
     imageWidth: 1400, imageHeight: 992,
     issuerColor: '#1a5276',
   },
@@ -107,7 +108,7 @@ const CERTS = [
     badge: 'Training Program',
     title: 'Artificial Intelligence Training',
     issuer: 'Acmegrade',
-    image: '/assets/aiacmegrade.webp',
+    image: IMAGES.aiacmegrade,
     imageWidth: 1400, imageHeight: 1068,
     issuerColor: '#1b4f72',
   },
